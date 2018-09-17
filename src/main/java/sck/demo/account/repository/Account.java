@@ -1,6 +1,7 @@
 package sck.demo.account.repository;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Account {
@@ -45,5 +46,21 @@ public class Account {
 
     public void setOwner(Customer owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return id == account.id &&
+                Objects.equals(accountNo, account.accountNo) &&
+                Objects.equals(acccountName, account.acccountName) &&
+                Objects.equals(owner, account.owner);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, accountNo, acccountName, owner);
     }
 }

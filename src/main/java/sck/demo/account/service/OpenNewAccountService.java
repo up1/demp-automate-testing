@@ -10,19 +10,25 @@ import sck.demo.account.repository.CustomerRepository;
 @Service
 public class OpenNewAccountService {
 
-    @Autowired
     private CustomerRepository customerRepository;
+    private AccountRepository accountRepository;
 
     @Autowired
-    private AccountRepository accountRepository;
+    public OpenNewAccountService(CustomerRepository customerRepository, AccountRepository accountRepository) {
+        this.customerRepository = customerRepository;
+        this.accountRepository = accountRepository;
+    }
 
     public Account openNewAccountFlow(int customerId) {
         Customer currentCustomer = customerRepository.findAccountById(customerId);
-        Account newAccount = new Account();
-        newAccount.setAccountNo(String.format("%05d", customerId));
-        newAccount.setAcccountName(currentCustomer.getFirstName() + " " + currentCustomer.getLastName());
-        accountRepository.save(newAccount);
-        return newAccount;
+        if(currentCustomer != null) {
+            Account newAccount = new Account();
+            newAccount.setAccountNo(String.format("%05d", customerId));
+            newAccount.setAcccountName(currentCustomer.getFirstName() + " " + currentCustomer.getLastName());
+            newAccount = accountRepository.save(newAccount);
+            return newAccount;
+        }
+        throw new RuntimeException(String.format("Customer id = %d not found", customerId));
     }
 
 }
