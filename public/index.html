@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open New Account</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function openAccount() {
+            id = document.getElementById("customerId").value;
+            $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8080/account",
+                    data: JSON.stringify({ customerId: id }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data){
+                        $('.accountId').text('Account Id is ' + data.id);
+                        $('.accountNo').text('Account number is ' + data.accountNo);
+                    },
+                    error: function(data){
+                        alert("fail");
+                    },
+                    failure: function(errMsg) {
+                        alert(errMsg);
+                    }
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+<div>
+    Customer ID : <input type="text" id="customerId" name="customerId">
+    <button onClick="openAccount()">Create Account</button>
+</div>
+<div>
+    <p class="accountId"></p>
+    <p class="accountNo"></p>
+</div>
+</body>
+</html>
