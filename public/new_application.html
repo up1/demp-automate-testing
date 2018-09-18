@@ -1,0 +1,38 @@
+<meta charset="UTF-8"/>
+<head>
+    <title>Open New Account</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function openAccount() {
+            id = document.getElementById("customerId").value;
+            $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8080/account",
+                    data: JSON.stringify({ customerId: id }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data){
+                        $('.accountId').text('Account Id is ' + data.id);
+                        $('.accountNo').text('Account number is ' + data.accountNo);
+                    },
+                    error: function(data){
+                        alert("fail");
+                    },
+                    failure: function(errMsg) {
+                        alert(errMsg);
+                    }
+            });
+        }
+    </script>
+
+</head>
+<h1>New Application Form</h1>
+<input type="text" id="firstName" placeholder="firstname">
+<input type="text" id="lastName" placeholder="lastname">
+<br>
+<input type="text" id="citizenID" placeholder="citizen id">
+<input type="text" id="birthDate">
+<br>
+<input type="text" id="income" placeholder="income">
+<br><br>
+<button id="submit" onclick="alert('สมัครบัตรได้')">Submit</button>

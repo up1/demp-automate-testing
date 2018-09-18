@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180918 15:07:51.077" generator="Robot 3.0.4 (Python 2.7.15 on darwin)">
+<suite source="/Users/somkiat/data/training/automated_testing/workshop/demo/ui_test/apply_new_application.robot" id="s1" name="Apply New Application">
+<test id="s1-t1" name="อายุเท่ากับ 18 ปีและเงินเดือน 25,000 บาทต้องมีสิทธิ์สมัครบัตรเครดิต">
+<kw name="ไปยังหน้าการขอเปิดบัตรเครดิต">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://10.10.99.42:8080/new_application.html</arg>
+<arg>browser=gc</arg>
+</arguments>
+<msg timestamp="20180918 15:07:51.171" level="INFO">Opening browser 'gc' to base url 'http://10.10.99.42:8080/new_application.html'.</msg>
+<status status="PASS" endtime="20180918 15:07:53.188" starttime="20180918 15:07:51.171"></status>
+</kw>
+<status status="PASS" endtime="20180918 15:07:53.189" starttime="20180918 15:07:51.170"></status>
+</kw>
+<kw name="กรอกข้อมูลของ ชนนิกานต์ โตบุญเรือง">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:firstName</arg>
+<arg>ชนนิกานต์</arg>
+</arguments>
+<msg timestamp="20180918 15:07:53.190" level="INFO">Typing text 'ชนนิกานต์' into text field 'id:firstName'.</msg>
+<status status="PASS" endtime="20180918 15:07:53.293" starttime="20180918 15:07:53.189"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:lastName</arg>
+<arg>โตบุญเรือง</arg>
+</arguments>
+<msg timestamp="20180918 15:07:53.294" level="INFO">Typing text 'โตบุญเรือง' into text field 'id:lastName'.</msg>
+<status status="PASS" endtime="20180918 15:07:53.352" starttime="20180918 15:07:53.293"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:citizenID</arg>
+<arg>1309902230169</arg>
+</arguments>
+<msg timestamp="20180918 15:07:53.353" level="INFO">Typing text '1309902230169' into text field 'id:citizenID'.</msg>
+<status status="PASS" endtime="20180918 15:07:53.413" starttime="20180918 15:07:53.352"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:birthDate</arg>
+<arg>10/03/2000</arg>
+</arguments>
+<msg timestamp="20180918 15:07:53.414" level="INFO">Typing text '10/03/2000' into text field 'id:birthDate'.</msg>
+<status status="PASS" endtime="20180918 15:07:53.473" starttime="20180918 15:07:53.414"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:income</arg>
+<arg>25,000</arg>
+</arguments>
+<msg timestamp="20180918 15:07:53.473" level="INFO">Typing text '25,000' into text field 'id:income'.</msg>
+<status status="PASS" endtime="20180918 15:07:53.522" starttime="20180918 15:07:53.473"></status>
+</kw>
+<status status="PASS" endtime="20180918 15:07:53.522" starttime="20180918 15:07:53.189"></status>
+</kw>
+<kw name="Submit application form">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id:submit</arg>
+</arguments>
+<msg timestamp="20180918 15:07:53.523" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" endtime="20180918 15:07:53.617" starttime="20180918 15:07:53.522"></status>
+</kw>
+<status status="PASS" endtime="20180918 15:07:53.617" starttime="20180918 15:07:53.522"></status>
+</kw>
+<kw name="ต้องสามารถสมัครบัตรได้นะ">
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<doc>Verifies that an alert is present and, by default, accepts it.</doc>
+<arguments>
+<arg>สมัครบัตรได้</arg>
+<arg>action=LEAVE</arg>
+</arguments>
+<status status="PASS" endtime="20180918 15:07:53.620" starttime="20180918 15:07:53.618"></status>
+</kw>
+<status status="PASS" endtime="20180918 15:07:53.621" starttime="20180918 15:07:53.618"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180918 15:07:53.686" starttime="20180918 15:07:53.621"></status>
+</kw>
+<status status="PASS" endtime="20180918 15:07:53.686" critical="yes" starttime="20180918 15:07:51.168"></status>
+</test>
+<status status="PASS" endtime="20180918 15:07:53.687" starttime="20180918 15:07:51.079"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Apply New Application" pass="1">Apply New Application</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
