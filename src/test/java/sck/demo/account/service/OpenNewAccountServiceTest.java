@@ -54,7 +54,7 @@ public class OpenNewAccountServiceTest {
     public void openNewAccountFlowShouldFailure() {
         // Stub customer not found
         given(customerRepository.findAccountById(2)).willThrow(RuntimeException.class);
-        
+
         // Action
         Account actualAccount = service.openNewAccountFlow(2);
 
